@@ -11,10 +11,7 @@ export const buttonLikeCommon = {
   transition: '0.3s',
 };
 
-export const buttonLikeBorderForColor = (color) => {
-  return `1.5px solid ${color}`;
-};
-
+export const buttonLikeBorderForColor = color => `1.5px solid ${color}`;
 export const buttonLikePropHandler = ({
   rootColor = '#e06377',
   highlightColor = 'white',
