@@ -4,26 +4,29 @@ import { Button } from '../components/button';
 
 storiesOf('Button', module)
   .add('normal with text', () => (
-    <Button>Test button</Button>
+    <Button>Buffon</Button>
   ))
   .add('small with text', () => (
-    <Button size='small'>Test button</Button>
+    <Button size="small">Test button</Button>
   ))
   .add('large with text', () => (
-    <Button size='large'>Test button</Button>
+    <Button size="large">Test button</Button>
   ))
   .add('normal with text (primary)', () => (
     <Button primary>Test button</Button>
   ))
+  .add('normal with text lotsa text (primary)', () => (
+    <Button primary>Test button with a really long text option</Button>
+  ))
   .add('small with text (primary)', () => (
-    <Button primary size='small'>Test button</Button>
+    <Button primary size="small">Test button</Button>
   ))
   .add('large with text (primary)', () => (
-    <Button primary size='large'>Test button</Button>
+    <Button primary size="large">Test button</Button>
   ))
-  .add('normal with text custom colour', () => (
-    <Button rootColour="#4286f4" highlightColour="black" size='normal'>Test button</Button>
+  .add('normal with text custom color', () => (
+    <Button rootColor="#4286f4" size="normal">Test button</Button>
   ))
-  .add('normal with text custom colour (primary)', () => (
-    <Button primary rootColour="#4286f4" highlightColour="black" size='normal'>Test button</Button>
+  .add('normal with text custom color (primary)', () => (
+    <Button primary rootColor="#4286f4" size="normal">Test button</Button>
   ));

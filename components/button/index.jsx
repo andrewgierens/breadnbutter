@@ -1,55 +1,85 @@
 import glamorous from 'glamorous';
 
-const sizes = {
-  small: '0.70rem',
-  normal: '0.95rem',
-  large: '1rem',
-}
+import fontSizes from '../common/font-sizes';
+import preventSelection from '../common/prevent-selection';
 
-export const Button = glamorous.button({  
-  border: 'none',
+export const buttonLikeCommon = {
   cursor: 'pointer',
   display: 'inline-block',
-  textAlign: 'center',  
+  textAlign: 'center',
   borderRadius: '0.2rem',
-  color: 'white',
   transition: '0.3s',
-},
-({rootColour = '#e06377', highlightColor = 'white', size = 'normal', primary = false}) => {
+};
+
+export const buttonLikeBorderForColor = (color) => {
+  return `1.5px solid ${color}`;
+};
+
+export const buttonLikePropHandler = ({
+  rootColor = '#e06377',
+  highlightColor = 'white',
+  size = 'normal',
+  primary = false,
+}) => {
   // Some sizing
-  let padding = '0.75rem';
+  let padding = '0.65rem';
   let minWidth = '8rem';
 
   if (size === 'large') padding = '0.75rem';
   if (size === 'small') padding = '0.5rem';
-  
+
   if (size === 'large') minWidth = '10rem';
   if (size === 'small') minWidth = '6rem';
 
-
-  // Some colouring
-  let colour = rootColour;
-  let backgroundColour = highlightColor;
+  // Some coloring
+  let color = rootColor;
+  let backgroundColor = highlightColor;
+  let border = buttonLikeBorderForColor(color);
 
   if (primary) {
-    colour = backgroundColour;
-    backgroundColour = rootColour;    
+    color = backgroundColor;
+    backgroundColor = rootColor;
+    border = buttonLikeBorderForColor(backgroundColor);
   }
+
 
   // On hover, we laugh bruz!
   const hover = {
-    backgroundColor: colour,
-    color: backgroundColour,
-    border: `1px solid ${backgroundColour}`
+    backgroundColor: color,
+    color: backgroundColor,
   };
 
+  if (primary) {
+    hover.border = buttonLikeBorderForColor(backgroundColor);
+  } else {
+    hover.border = buttonLikeBorderForColor(color);
+  }
+
+  // On click, we fly bruz
+  const active = {};
+
+  if (primary) {
+    active.backgroundColor = backgroundColor;
+    active.color = backgroundColor;
+  } else {
+    active.backgroundColor = color;
+    active.color = color;
+  }
+
   return {
-    border: `1px solid ${colour}`,
-    backgroundColor: backgroundColour,
-    color: colour,
-    fontSize: sizes[size],
+    border,
+    backgroundColor,
+    color,
+    fontSize: fontSizes[size],
     padding,
     minWidth,
     ':hover': hover,
+    ':active': active,
   };
-});
+};
+
+export const Button = glamorous.button(
+  preventSelection,
+  buttonLikeCommon,
+  buttonLikePropHandler,
+);
