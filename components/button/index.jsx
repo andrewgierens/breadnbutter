@@ -1,6 +1,7 @@
 import glamorous from 'glamorous';
 
 import fontSizes from '../common/font-sizes';
+import borderWithColor from '../common/border-with-color';
 import preventSelection from '../common/prevent-selection';
 
 export const buttonLikeCommon = {
@@ -11,7 +12,6 @@ export const buttonLikeCommon = {
   transition: '0.3s',
 };
 
-export const buttonLikeBorderForColor = color => `1.5px solid ${color}`;
 export const buttonLikePropHandler = ({
   rootColor = '#e06377',
   highlightColor = 'white',
@@ -31,12 +31,12 @@ export const buttonLikePropHandler = ({
   // Some coloring
   let color = rootColor;
   let backgroundColor = highlightColor;
-  let border = buttonLikeBorderForColor(color);
+  let border = borderWithColor(color);
 
   if (primary) {
     color = backgroundColor;
     backgroundColor = rootColor;
-    border = buttonLikeBorderForColor(backgroundColor);
+    border = borderWithColor(backgroundColor);
   }
 
 
@@ -47,9 +47,9 @@ export const buttonLikePropHandler = ({
   };
 
   if (primary) {
-    hover.border = buttonLikeBorderForColor(backgroundColor);
+    hover.border = borderWithColor(backgroundColor);
   } else {
-    hover.border = buttonLikeBorderForColor(color);
+    hover.border = borderWithColor(color);
   }
 
   // On click, we fly bruz
@@ -72,6 +72,9 @@ export const buttonLikePropHandler = ({
     minWidth,
     ':hover': hover,
     ':active': active,
+    ':focus': {
+      outline: 0,
+    },
   };
 };
 
