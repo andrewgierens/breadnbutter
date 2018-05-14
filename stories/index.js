@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Button } from '../components/button';
+import Button from '../components/button';
+import Link from '../components/link';
 
 storiesOf('Button', module)
   .add('normal with text', () => (
@@ -29,4 +30,9 @@ storiesOf('Button', module)
   ))
   .add('normal with text custom color (primary)', () => (
     <Button primary rootColor="#4286f4" size="normal">Test button</Button>
+  ));
+
+storiesOf('Link', module)
+  .add('link to googz', () => (
+    <Link target="_blank" href="http://www.google.com">Googz</Link>
   ));

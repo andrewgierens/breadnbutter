@@ -78,7 +78,7 @@ export const buttonLikePropHandler = ({
   };
 };
 
-export const Button = glamorous.button(
+export default glamorous.button(
   preventSelection,
   buttonLikeCommon,
   buttonLikePropHandler,
