@@ -4,15 +4,7 @@ import fontSizes from '../common/font-sizes';
 import borderWithColor from '../common/border-with-color';
 import preventSelection from '../common/prevent-selection';
 
-export const buttonLikeCommon = {
-  cursor: 'pointer',
-  display: 'inline-block',
-  textAlign: 'center',
-  borderRadius: '0.2rem',
-  transition: '0.3s',
-};
-
-export const buttonLikePropHandler = ({
+export const buttonStyle = ({
   rootColor = '#e06377',
   highlightColor = 'white',
   size = 'normal',
@@ -39,7 +31,6 @@ export const buttonLikePropHandler = ({
     border = borderWithColor(backgroundColor);
   }
 
-
   // On hover, we laugh bruz!
   const hover = {
     backgroundColor: color,
@@ -63,7 +54,16 @@ export const buttonLikePropHandler = ({
     active.color = color;
   }
 
+  const additionalStyles = {
+    cursor: 'pointer',
+    display: 'inline-block',
+    textAlign: 'center',
+    borderRadius: '0.2rem',
+    transition: '0.3s',
+  };
+
   return {
+    ...additionalStyles,
     border,
     backgroundColor,
     color,
@@ -80,6 +80,5 @@ export const buttonLikePropHandler = ({
 
 export default glamorous.button(
   preventSelection,
-  buttonLikeCommon,
-  buttonLikePropHandler,
+  buttonStyle,
 );

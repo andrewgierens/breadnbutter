@@ -12,13 +12,14 @@
   "devDependencies": {
     "@storybook/react": "^3.4.0",
     "babel-core": "^6.26.0",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.8.2",
-    "eslint": "^4.19.1"
+    "eslint-plugin-react": "^7.8.2"
   },
-  "dependencies": {    
+  "dependencies": {
+    "color": "^3.0.0",
     "glamor": "^2.20.40",
     "glamorous": "^4.13.0",
     "react": "^16.3.1",

@@ -1,6 +1,6 @@
 import glamarous from 'glamorous';
 
-import { buttonLikeCommon, buttonLikePropHandler } from '../button';
+import { buttonStyle } from '../button';
 import preventSelection from '../common/prevent-selection';
 
 export default glamarous.a(
@@ -8,6 +8,5 @@ export default glamarous.a(
     textDecoration: 'none',
     fontFamily: 'sans-serif',
   },
-  buttonLikeCommon,
-  buttonLikePropHandler,
+  buttonStyle,
 );
