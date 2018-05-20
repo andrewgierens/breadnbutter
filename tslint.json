@@ -1,0 +1,14 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+      // Helper classes can be helpful if only
+      // used within the class itself
+      "max-classes-per-file": false,
+      "object-literal-sort-keys": false
+    },
+    "rulesDirectory": []
+}
