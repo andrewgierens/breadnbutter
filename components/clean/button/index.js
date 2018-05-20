@@ -2,7 +2,7 @@ import glamorous from 'glamorous';
 
 import fontSizes from '../common/font-sizes';
 import borderWithColor from '../common/border-with-color';
-import preventSelection from '../common/prevent-selection';
+import preventSelection from '../../common/prevent-selection';
 
 export const buttonStyle = ({
   rootColor = '#e06377',

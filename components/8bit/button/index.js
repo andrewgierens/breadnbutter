@@ -55,7 +55,7 @@ const getColor = (type) => {
   if (!colors[type]) {
     throw new Error('Invalid color type');
   }
-
+  
   return colors[type];
 };
 
