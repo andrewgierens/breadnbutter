@@ -1,5 +1,4 @@
 import glamarous, { GlamorousComponent } from "glamorous";
-import React from "react";
 
 import preventSelection from "../../common/prevent-selection";
 import { buttonStyle, IButtonProps } from "../button";

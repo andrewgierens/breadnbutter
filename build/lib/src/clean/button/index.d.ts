@@ -1,5 +1,4 @@
 /// <reference types="react" />
-import React from "react";
 import { CSSProperties, GlamorousComponent } from "glamorous";
 export interface IButtonProps {
     rootColor?: string;

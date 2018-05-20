@@ -1,5 +1,5 @@
+import * as React from "react";
 import { storiesOf } from "@storybook/react";
-import React from "react";
 
 import Button from "../../src/8bit/button";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import glamorous, { CSSProperties, GlamorousComponent } from "glamorous";
 
 import preventSelection from "../../common/prevent-selection";
