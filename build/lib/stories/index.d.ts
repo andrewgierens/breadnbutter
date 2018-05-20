@@ -1,1 +1,1 @@
-import "./standard/link-stories";
+import "./clean";

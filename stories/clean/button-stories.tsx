@@ -1,17 +1,17 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 
-import Button from "../../src/clean/button";
+import Button, { ButtonSize } from "../../src/clean/button";
 
 storiesOf("Clean/Button", module)
   .add("normal with text", () => (
     <Button>Buffon</Button>
   ))
   .add("small with text", () => (
-    <Button size="small">Test button</Button>
+    <Button buttonSize={ButtonSize.Small}>Test button</Button>
   ))
   .add("large with text", () => (
-    <Button size="large">Test button</Button>
+    <Button buttonSize={ButtonSize.Large}>Test button</Button>
   ))
   .add("normal with text (primary)", () => (
     <Button primary>Test button</Button>
@@ -20,14 +20,14 @@ storiesOf("Clean/Button", module)
     <Button primary>Test button with a really long text option</Button>
   ))
   .add("small with text (primary)", () => (
-    <Button primary size="small">Test button</Button>
+    <Button primary buttonSize={ButtonSize.Small}>Test button</Button>
   ))
   .add("large with text (primary)", () => (
-    <Button primary size="large">Test button</Button>
+    <Button primary buttonSize={ButtonSize.Large}>Test button</Button>
   ))
   .add("normal with text custom color", () => (
-    <Button rootColor="#4286f4" size="normal">Test button</Button>
+    <Button rootColor="#4286f4">Test button</Button>
   ))
   .add("normal with text custom color (primary)", () => (
-    <Button primary rootColor="#4286f4" size="normal">Test button</Button>
+    <Button primary rootColor="#4286f4">Test button</Button>
   ));

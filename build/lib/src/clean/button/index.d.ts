@@ -1,9 +1,14 @@
 /// <reference types="react" />
 import { CSSProperties, GlamorousComponent } from "glamorous";
+export declare enum ButtonSize {
+    Small = "small",
+    Normal = "normal",
+    Large = "large",
+}
 export interface IButtonProps {
     rootColor?: string;
     highlightColor?: string;
-    size?: string;
+    buttonSize?: ButtonSize;
     primary?: boolean;
 }
 export declare const buttonStyle: (props: IButtonProps) => CSSProperties;

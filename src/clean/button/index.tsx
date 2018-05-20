@@ -4,10 +4,16 @@ import preventSelection from "../../common/prevent-selection";
 import borderWithColor from "../common/border-with-color";
 import fontSizes from "../common/font-sizes";
 
+export enum ButtonSize {
+  Small = "small",
+  Normal = "normal",
+  Large = "large",
+}
+
 export interface IButtonProps {
   rootColor?: string;
   highlightColor?: string;
-  size?: string;
+  buttonSize?: ButtonSize;
   primary?: boolean;
 }
 
@@ -15,7 +21,7 @@ export const buttonStyle = (props: IButtonProps): CSSProperties => {
   const {
     rootColor = "#e06377",
     highlightColor = "white",
-    size = "normal",
+    buttonSize = ButtonSize.Normal,
     primary = false,
   } = props;
 
@@ -23,11 +29,11 @@ export const buttonStyle = (props: IButtonProps): CSSProperties => {
   let padding = "0.65rem";
   let minWidth = "8rem";
 
-  if (size === "large") { padding = "0.75rem"; }
-  if (size === "small") { padding = "0.5rem"; }
+  if (buttonSize === ButtonSize.Large) { padding = "0.75rem"; }
+  if (buttonSize === ButtonSize.Small) { padding = "0.5rem"; }
 
-  if (size === "large") { minWidth = "10rem"; }
-  if (size === "small") { minWidth = "6rem"; }
+  if (buttonSize === ButtonSize.Large) { minWidth = "10rem"; }
+  if (buttonSize === ButtonSize.Small) { minWidth = "6rem"; }
 
   // Some coloring
   let color = rootColor;
@@ -68,11 +74,6 @@ export const buttonStyle = (props: IButtonProps): CSSProperties => {
   }
 
   const retVal: CSSProperties = {
-    ":active": active,
-    ":focus": {
-       outline: 0,
-    },
-    ":hover": hover,
     "color": color,
     "backgroundColor": backgroundColor,
     "border": border,
@@ -82,9 +83,14 @@ export const buttonStyle = (props: IButtonProps): CSSProperties => {
     "textAlign": "center",
     "transition": "0.3s",
     ...preventSelection,
-    "fontSize": fontSizes[size],
+    "fontSize": fontSizes[buttonSize],
     "minWidth": minWidth,
     "padding": padding,
+    ":focus": {
+       outline: 0,
+    },
+    ":hover": hover,
+    ":active": active,
   };
 
   return retVal;
