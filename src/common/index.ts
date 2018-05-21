@@ -95,3 +95,12 @@ export const preventSelection = {
   "-webkit-touch-callout": "none",
   "-webkit-user-select": "none",
 };
+
+export const disabledElement = {
+  opacity: 0.65,
+  cursor: "not-allowed",
+};
+
+export const loadingElement = {
+
+};

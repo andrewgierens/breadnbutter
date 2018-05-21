@@ -10,6 +10,7 @@ import {
   getFontSize,
   getPadding,
   ElementSize,
+  disabledElement,
 } from "../../common";
 
 // 8 Bit Styles
@@ -33,18 +34,21 @@ const buttonStyle = (props: IButtonProps): CSSProperties => {
   const mainColor = getColor(buttonType, rootColor);
 
   return {
-    display: "inline-block",
-    position: "relative",
-    textAlign: "center",
-    textDecoration: "none",
-    fontFamily: font,
-    fontSize: `${getFontSize(buttonSize)}rem`,
-    background: getBackgroundColor(mainColor),
-    color: getForegroundColor(mainColor),
-    padding: `${getPadding(buttonSize)}rem`,
+    "display": "inline-block",
+    "position": "relative",
+    "textAlign": "center",
+    "textDecoration": "none",
+    "fontFamily": font,
+    "fontSize": `${getFontSize(buttonSize)}rem`,
+    "background": getBackgroundColor(mainColor),
+    "color": getForegroundColor(mainColor),
+    "padding": `${getPadding(buttonSize)}rem`,
     ...(disabled ? {} : getClickable(mainColor)),
     ...get2dOutline(),
-    ...(loading ? {} : {}),
+    ...(loading ? {
+      ...disabledElement,
+    } : {}),
+    ":disabled": disabledElement,
   } as CSSProperties;
 };
 

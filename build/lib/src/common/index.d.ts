@@ -29,3 +29,8 @@ export declare const preventSelection: {
     "-webkit-touch-callout": string;
     "-webkit-user-select": string;
 };
+export declare const disabledElement: {
+    opacity: number;
+    cursor: string;
+};
+export declare const loadingElement: {};
