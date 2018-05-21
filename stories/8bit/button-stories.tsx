@@ -8,17 +8,17 @@ storiesOf("8Bit/Button", module)
     <Button type="primary">Normal Primary</Button>
   ))
   .add("small with text (link)", () => (
-    <Button size="small" type="link" >Small Link</Button>
+    <Button buttonSize="small" type="link" >Small Link</Button>
   ))
   .add("large with text (info)", () => (
-    <Button size="large" type="info">Large Info</Button>
+    <Button buttonSize="large" type="info">Large Info</Button>
   ))
   .add("normal with text (success)", () => (
-    <Button size="normal" type="success">Yay. Success.</Button>
+    <Button buttonSize="normal" type="success">Yay. Success.</Button>
   ))
   .add("small with text (danger)", () => (
-    <Button size="small" type="danger">Eeep. Dangja!</Button>
+    <Button buttonSize="small" type="danger">Eeep. Dangja!</Button>
   ))
   .add("small with text (purple)", () => (
-    <Button size="small" color="purple">Who da purp?</Button>
+    <Button buttonSize="small" color="purple">Who da purp?</Button>
   ));

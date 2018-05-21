@@ -11,6 +11,7 @@
   "license": "MIT",
   "devDependencies": {
     "@storybook/react": "^3.4.0",
+    "@types/color": "^3.0.0",
     "@types/storybook__react": "^3.0.7",
     "awesome-typescript-loader": "4",
     "babel-core": "^6.26.0",
