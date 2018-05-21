@@ -1,5 +1,4 @@
 import glamorous, { CSSProperties, GlamorousComponent } from "glamorous";
-import * as Color from "color";
 
 import "../fonts/press-start-2p.css";
 
@@ -15,7 +14,11 @@ import {
 
 // 8 Bit Styles
 import {
-  font, getBackgroundColor, getForegroundColor, getClickable, get2dOutline,
+  font,
+  getBackgroundColor,
+  getForegroundColor,
+  getClickable,
+  get2dOutline,
 } from "../common";
 
 const buttonStyle = (props: IButtonProps): CSSProperties => {
@@ -23,32 +26,26 @@ const buttonStyle = (props: IButtonProps): CSSProperties => {
     buttonSize = ElementSize.Normal,
     buttonType,
     rootColor,
+    disabled,
+    loading,
   } = props;
 
-  let mainColor = null;
-  if (rootColor) { mainColor = Color(rootColor); }
-  if (buttonType) { mainColor = Color(getColor(buttonType)); }
+  const mainColor = getColor(buttonType, rootColor);
 
-  if (!mainColor) {
-    throw new Error("Unable to determine color");
-  }
-
-  const style = {
+  return {
     display: "inline-block",
     position: "relative",
     textAlign: "center",
-    cursor: "pointer",
     textDecoration: "none",
     fontFamily: font,
     fontSize: `${getFontSize(buttonSize)}rem`,
     background: getBackgroundColor(mainColor),
     color: getForegroundColor(mainColor),
     padding: `${getPadding(buttonSize)}rem`,
-    ...getClickable(mainColor),
+    ...(disabled ? {} : getClickable(mainColor)),
     ...get2dOutline(),
-  };
-
-  return style as CSSProperties;
+    ...(loading ? {} : {}),
+  } as CSSProperties;
 };
 
 const Button:

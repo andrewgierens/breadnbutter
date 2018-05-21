@@ -1,3 +1,5 @@
+import * as Color from "color";
+
 export enum ElementType {
   Primary = 1,
   Link = 2,
@@ -12,21 +14,44 @@ export enum ElementSize {
   Large = "large",
 }
 
-export const getColor = (type: ElementType): string => {
-  switch (type) {
-    case ElementType.Danger:
-      return "#fe432f";
-    case ElementType.Info:
-      return "#52bbf4";
-    case ElementType.Link:
-      return "#ffab00";
-    case ElementType.Primary:
-      return "#ff85cb";
-    case ElementType.Success:
-      return "#b1eb02";
+export const getColor = (type?: ElementType, rootColor?: string): Color => {
+  let colorAsString = null;
+
+  if (type) {
+    switch (type) {
+      case ElementType.Danger:
+        colorAsString = "#fe432f";
+        break;
+      case ElementType.Info:
+        colorAsString = "#52bbf4";
+        break;
+      case ElementType.Link:
+        colorAsString = "#ffab00";
+        break;
+      case ElementType.Primary:
+        colorAsString = "#ff85cb";
+        break;
+      case ElementType.Success:
+        colorAsString = "#b1eb02";
+        break;
+    }
   }
 
-  throw Error(`Invalid ElementType ${type}`);
+  if (rootColor) {
+    colorAsString = rootColor;
+  }
+
+  if (!colorAsString) {
+    throw new Error("Unbale to determine color");
+  }
+
+  const colorAsColor = Color(colorAsString);
+
+  if (!colorAsColor) {
+    throw Error(`Unbale to determine color (${type}|${rootColor})`);
+  }
+
+  return colorAsColor;
 };
 
 export interface IButtonProps {

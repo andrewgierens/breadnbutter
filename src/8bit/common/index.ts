@@ -24,6 +24,7 @@ export const getClickable = (rootColor: Color): CSSProperties => {
   };
 
   const style: CSSProperties = {
+    "cursor": "pointer",
     "boxShadow": `inset -${shadowWidth}rem -${shadowWidth}rem 0px 0px ${shadowColor}`,
     ":hover": {
       ...hoverAndFocus,

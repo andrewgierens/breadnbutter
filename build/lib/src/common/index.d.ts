@@ -1,3 +1,5 @@
+/// <reference types="color" />
+import * as Color from "color";
 export declare enum ElementType {
     Primary = 1,
     Link = 2,
@@ -10,7 +12,7 @@ export declare enum ElementSize {
     Normal = "normal",
     Large = "large",
 }
-export declare const getColor: (type: ElementType) => string;
+export declare const getColor: (type?: ElementType | undefined, rootColor?: string | undefined) => Color;
 export interface IButtonProps {
     buttonSize?: ElementSize;
     buttonType?: ElementType;

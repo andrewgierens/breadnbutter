@@ -20,6 +20,9 @@ storiesOf("8Bit/Button", module)
   .add("small with text (danger)", () => (
     <Button buttonSize={ElementSize.Small} buttonType={ElementType.Danger}>Eeep. Dangja!</Button>
   ))
+  .add("small with text (danger | disalbeleledlds)", () => (
+    <Button disabled buttonSize={ElementSize.Small} buttonType={ElementType.Danger}>Eeep. Dangja!</Button>
+  ))
   .add("small with text (purple)", () => (
     <Button buttonSize={ElementSize.Small} rootColor="purple">Who da purp?</Button>
   ));
