@@ -5,61 +5,6 @@ import "../fonts/press-start-2p.css";
 
 import preventSelection from "../../common/prevent-selection";
 
-// Note. Units are all in rem
-
-// Boila
-
-// Sizing
-const sizes = {
-  small: "0.70rem",
-  normal: "0.95rem",
-  large: "1rem",
-};
-
-const getFontSise = (size: string) => {
-  if (!sizes[size]) {
-    throw new Error("Invalid font size");
-  }
-
-  return sizes[size];
-};
-
-const getPadding = (size: string) => {
-  switch (size) {
-    case "small":
-      return "1rem";
-    case "normal":
-      return "1.25rem";
-    case "large":
-      return "1.5rem";
-    default:
-      throw new Error("Invalid size");
-  }
-};
-
-// Colouring
-const colors = {
-  primary: "#ff85cb",
-  link: "#ffab00",
-  info: "#52bbf4",
-  success: "#b1eb02",
-  danger: "#fe432f",
-};
-
-const getColor = (type: string) => {
-  if (!colors[type]) {
-    throw new Error("Invalid color type");
-  }
-
-  return colors[type];
-};
-
-interface IButtonProps {
-  buttonSize?: string;
-  type?: string;
-  color?: string;
-}
-
 const buttonStyle = (props: IButtonProps): CSSProperties => {
   const { buttonSize = "normal", type = "success", color = null } = props;
   if (type === null && color === null) { throw new Error("Either type or color must be passed in"); }
