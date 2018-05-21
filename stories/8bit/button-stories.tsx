@@ -6,7 +6,7 @@ import { ElementSize, ElementType } from "../../src/common";
 
 storiesOf("8Bit/Button", module)
   .add("normal with text (primary)", () => (
-    <Button>Normal Primary</Button>
+    <Button buttonType={ElementType.Primary}>Normal Primary</Button>
   ))
   .add("small with text (link)", () => (
     <Button buttonSize={ElementSize.Small} buttonType={ElementType.Link} >Small Link</Button>

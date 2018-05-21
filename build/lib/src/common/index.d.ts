@@ -1,9 +1,9 @@
 export declare enum ElementType {
-    Primary = 0,
-    Link = 1,
-    Info = 2,
-    Success = 3,
-    Danger = 4,
+    Primary = 1,
+    Link = 2,
+    Info = 3,
+    Success = 4,
+    Danger = 5,
 }
 export declare enum ElementSize {
     Small = "small",

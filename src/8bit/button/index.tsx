@@ -10,21 +10,14 @@ import {
   getFontSize,
   getPadding,
   ElementSize,
-  ElementType,
 } from "../../common";
 
 const buttonStyle = (props: IButtonProps): CSSProperties => {
   const {
     buttonSize = ElementSize.Normal,
-    buttonType = ElementType.Primary,
-    rootColor = null,
+    buttonType,
+    rootColor,
   } = props;
-  if (buttonType === null && rootColor === null
-    || buttonType !== null && rootColor !== null) {
-    throw new Error(`Either type or color must be passed in.
-                      Also they can't both be not nullz`);
-  }
-
   const style = {
     display: "",
     position: "",
@@ -47,7 +40,14 @@ const buttonStyle = (props: IButtonProps): CSSProperties => {
   style.textDecoration = "none";
 
   // Button sizing
-  const mainColor = Color(rootColor || getColor(buttonType));
+  let mainColor = null;
+  if (rootColor) { mainColor = Color(rootColor); }
+  if (buttonType) { mainColor = Color(getColor(buttonType)); }
+
+  if (!mainColor) {
+    throw new Error("Unable to determine color");
+  }
+
   style.fontFamily = "'Press Start 2P', cursive";
   style.fontSize = `${getFontSize(buttonSize)}rem`;
   style.background = mainColor.hex().toString();
