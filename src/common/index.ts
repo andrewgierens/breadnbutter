@@ -1,27 +1,72 @@
 export enum ElementType {
-  primary,
-  link,
-  info,
-  success,
-  danger,
+  Primary,
+  Link,
+  Info,
+  Success,
+  Danger,
+}
+
+export enum ElementSize {
+  Small = "small",
+  Normal = "normal",
+  Large = "large",
 }
 
 export const getColor = (type: ElementType): string => {
   switch (type) {
-    case ElementType.danger:
+    case ElementType.Danger:
       return "#fe432f";
-    case ElementType.info:
+    case ElementType.Info:
       return "#52bbf4";
-    case ElementType.link:
+    case ElementType.Link:
       return "#ffab00";
-    case ElementType.primary:
+    case ElementType.Primary:
       return "#ff85cb";
-    case ElementType.success:
+    case ElementType.Success:
       return "#b1eb02";
   }
 
   throw Error(`Invalid ElementType ${type}`);
 };
 
-export * from "./button-common";
-export * from "./prevent-selection";
+export interface IButtonProps {
+  buttonSize?: ElementSize;
+  buttonType?: ElementType;
+  rootColor?: string;
+  disabled?: boolean;
+  loading?: boolean;
+}
+
+export const getFontSize = (size: ElementSize): number => {
+  switch (size) {
+    case ElementSize.Large:
+      return 1;
+    case ElementSize.Normal:
+      return 0.95;
+    case ElementSize.Small:
+      return 0.7;
+  }
+
+  throw new Error(`Invalid ElementSize ${size}`);
+};
+
+export const getPadding = (size: ElementSize): number => {
+  switch (size) {
+    case ElementSize.Large:
+      return 1.5;
+    case ElementSize.Normal:
+      return 1.25;
+    case ElementSize.Small:
+      return 1;
+  }
+
+  throw new Error(`Invalid ElementSize ${size}`);
+};
+
+export const preventSelection = {
+  "-khtml-user-select": "none",
+  "-moz-user-select": "none",
+  "-ms-user-select": "none",
+  "-webkit-touch-callout": "none",
+  "-webkit-user-select": "none",
+};

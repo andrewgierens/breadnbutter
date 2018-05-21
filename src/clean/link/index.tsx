@@ -1,6 +1,6 @@
 import glamarous, { GlamorousComponent } from "glamorous";
 
-import preventSelection from "../../common/prevent-selection";
+import { preventSelection } from "../../common";
 import { buttonStyle, IButtonProps } from "../button";
 
 const Link:

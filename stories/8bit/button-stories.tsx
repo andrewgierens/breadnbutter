@@ -2,23 +2,24 @@ import * as React from "react";
 import { storiesOf } from "@storybook/react";
 
 import Button from "../../src/8bit/button";
+import { ElementSize, ElementType } from "../../src/common";
 
 storiesOf("8Bit/Button", module)
   .add("normal with text (primary)", () => (
-    <Button type="primary">Normal Primary</Button>
+    <Button>Normal Primary</Button>
   ))
   .add("small with text (link)", () => (
-    <Button buttonSize="small" type="link" >Small Link</Button>
+    <Button buttonSize={ElementSize.Small} buttonType={ElementType.Link} >Small Link</Button>
   ))
   .add("large with text (info)", () => (
-    <Button buttonSize="large" type="info">Large Info</Button>
+    <Button buttonSize={ElementSize.Large} buttonType={ElementType.Info}>Large Info</Button>
   ))
   .add("normal with text (success)", () => (
-    <Button buttonSize="normal" type="success">Yay. Success.</Button>
+    <Button buttonSize={ElementSize.Normal} buttonType={ElementType.Success}>Yay. Success.</Button>
   ))
   .add("small with text (danger)", () => (
-    <Button buttonSize="small" type="danger">Eeep. Dangja!</Button>
+    <Button buttonSize={ElementSize.Small} buttonType={ElementType.Danger}>Eeep. Dangja!</Button>
   ))
   .add("small with text (purple)", () => (
-    <Button buttonSize="small" color="purple">Who da purp?</Button>
+    <Button buttonSize={ElementSize.Small} rootColor="purple">Who da purp?</Button>
   ));

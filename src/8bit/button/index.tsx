@@ -3,11 +3,27 @@ import * as Color from "color";
 
 import "../fonts/press-start-2p.css";
 
-import preventSelection from "../../common/prevent-selection";
+import {
+  preventSelection,
+  IButtonProps,
+  getColor,
+  getFontSize,
+  getPadding,
+  ElementSize,
+  ElementType,
+} from "../../common";
 
 const buttonStyle = (props: IButtonProps): CSSProperties => {
-  const { buttonSize = "normal", type = "success", color = null } = props;
-  if (type === null && color === null) { throw new Error("Either type or color must be passed in"); }
+  const {
+    buttonSize = ElementSize.Normal,
+    buttonType = ElementType.Primary,
+    rootColor = null,
+  } = props;
+  if (buttonType === null && rootColor === null
+    || buttonType !== null && rootColor !== null) {
+    throw new Error(`Either type or color must be passed in.
+                      Also they can't both be not nullz`);
+  }
 
   const style = {
     display: "",
@@ -31,12 +47,12 @@ const buttonStyle = (props: IButtonProps): CSSProperties => {
   style.textDecoration = "none";
 
   // Button sizing
-  const mainColor = Color(color || getColor(type));
+  const mainColor = Color(rootColor || getColor(buttonType));
   style.fontFamily = "'Press Start 2P', cursive";
-  style.fontSize = getFontSise(buttonSize);
+  style.fontSize = `${getFontSize(buttonSize)}rem`;
   style.background = mainColor.hex().toString();
   style.color = mainColor.isDark() ? "white" : "black";
-  style.padding = getPadding(buttonSize);
+  style.padding = `${getPadding(buttonSize)}rem`;
 
   // Fancy fancy, with the fancy schmancy
   const shadowWidth = 0.2;

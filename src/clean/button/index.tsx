@@ -1,6 +1,6 @@
 import glamorous, { CSSProperties, GlamorousComponent } from "glamorous";
 
-import preventSelection from "../../common/prevent-selection";
+import { preventSelection } from "../../common";
 import borderWithColor from "../common/border-with-color";
 import fontSizes from "../common/font-sizes";
 
