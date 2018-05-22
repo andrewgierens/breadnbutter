@@ -2,7 +2,7 @@
   "name": "@agierens/breadnbutter",
   "version": "1.0.0",
   "description": "A component library that's as fluffy as sourdough, and as smooth as butter 🍞",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "yarn test",
     "start": "start-storybook -p 9001 -c .storybook"
@@ -11,9 +11,17 @@
   "license": "MIT",
   "devDependencies": {
     "@storybook/react": "^3.4.0",
-    "babel-core": "^6.26.0"
+    "@types/color": "^3.0.0",
+    "@types/storybook__react": "^3.0.7",
+    "awesome-typescript-loader": "4",
+    "babel-core": "^6.26.0",
+    "tslint": "^5.10.0",
+    "typescript": "^2.8.3"
   },
   "dependencies": {
+    "color": "^3.0.0",
+    "glamor": "^2.20.40",
+    "glamorous": "^4.13.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1"
   }
