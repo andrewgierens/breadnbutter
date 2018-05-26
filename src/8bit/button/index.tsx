@@ -53,9 +53,9 @@ const buttonStyle = ({
 
 const Button = (props: IButtonProps) => {
   const StyledButton = glamorous.button<IButtonProps>(
-      preventSelection,
-      buttonStyle,
-    );
+    preventSelection,
+    buttonStyle,
+  );
 
   return (
     <StyledButton {...props}>

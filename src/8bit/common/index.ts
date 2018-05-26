@@ -23,7 +23,7 @@ export const getClickable = (rootColor: Color): CSSProperties => {
     outline: 0,
   };
 
-  const style: CSSProperties = {
+  return {
     "cursor": "pointer",
     "boxShadow": `inset -${shadowWidth}rem -${shadowWidth}rem 0px 0px ${shadowColor}`,
     ":hover": {
@@ -35,8 +35,6 @@ export const getClickable = (rootColor: Color): CSSProperties => {
       boxShadow: `inset ${shadowWidth}rem ${shadowWidth}rem 0px 0px ${shadowColor}`,
     },
   };
-
-  return style;
 };
 
 export const get2dOutline = (): CSSProperties => {
@@ -62,8 +60,7 @@ export const get2dOutline = (): CSSProperties => {
     borderRight: `${outlineWidth}rem black solid`,
   };
 
-  // Not sure why I have to do this :(
-  const style: any = {
+  const style = {
     ":after": {
       ...beforeAfter,
       ...after,
@@ -74,5 +71,5 @@ export const get2dOutline = (): CSSProperties => {
     },
   };
 
-  return style;
+  return style as CSSProperties;
 };

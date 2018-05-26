@@ -4,6 +4,8 @@ import {
   IToolbarProps,
   disabledElement,
   getColor,
+  getPadding,
+  ElementSize,
 } from "../../common";
 import glamorous, { CSSProperties } from "glamorous";
 import {
@@ -14,26 +16,20 @@ import {
 } from "../common/index";
 
 // height/width in rem
-export const toolbarStyle = (height?: number, width?: number, rootColor: string = "black"): CSSProperties => {
-  const mainColor = getColor(undefined, rootColor);
+export const toolbarStyle = (
+  rootColor: string = "black",
+): CSSProperties => {
+  const mainColor = getColor(null, rootColor);
 
-  const style = {
+  const style: CSSProperties = {
     "display": "flex",
+    "position": "relative",
+    "flex": 1,
     "fontFamily": font,
     "background": getBackgroundColor(mainColor),
     "color": getForegroundColor(mainColor),
     ":disabled": disabledElement,
-    "height": "",
-    "width": "",
   };
-
-  if (height) {
-    style.height = `${height}rem`;
-  }
-
-  if (width) {
-    style.width = `${width}rem`;
-  }
 
   return style as CSSProperties;
 };
@@ -46,13 +42,13 @@ export default ({
   width,
 }: IToolbarProps) => {
   const ToolbarContainer = glamorous.div(
+    toolbarStyle(rootColor),
     get2dOutline(),
-    toolbarStyle(height, width, rootColor),
   );
   const ToolbarTitle = glamorous.span({
-    flexGrow: 1,
+    flex: 1,
     textAlign: "center",
-    padding: "1rem",
+    padding: `${getPadding(ElementSize.Normal)}rem`,
   });
 
   return (
