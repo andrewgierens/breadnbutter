@@ -58,6 +58,7 @@ export interface IElementBase {
   disabled?: boolean;
   loading?: boolean;
   rootColor?: string;
+  children: any;
 }
 
 export interface IButtonProps extends IElementBase {

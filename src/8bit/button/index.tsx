@@ -1,4 +1,5 @@
-import glamorous, { CSSProperties, GlamorousComponent } from "glamorous";
+import * as React from "react";
+import glamorous, { CSSProperties } from "glamorous";
 
 import "../fonts/press-start-2p.css";
 
@@ -50,10 +51,17 @@ const buttonStyle = ({
   } as CSSProperties;
 };
 
-const Button:
-  GlamorousComponent<IButtonProps & React.HTMLProps<HTMLButtonElement>, IButtonProps> = glamorous.button<IButtonProps>(
-  preventSelection,
-  buttonStyle,
-);
+const Button = (props: IButtonProps) => {
+  const StyledButton = glamorous.button<IButtonProps>(
+      preventSelection,
+      buttonStyle,
+    );
+
+  return (
+    <StyledButton {...props}>
+      {props.children}
+    </StyledButton>
+  );
+};
 
 export default Button;
