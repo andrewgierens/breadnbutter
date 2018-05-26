@@ -14,7 +14,7 @@ export enum ElementSize {
   Large = "large",
 }
 
-export const getColor = (type?: ElementType, rootColor?: string): Color => {
+export const getColor = (type?: ElementType | null, rootColor?: string | null): Color => {
   let colorAsString = null;
 
   if (type) {
@@ -54,12 +54,21 @@ export const getColor = (type?: ElementType, rootColor?: string): Color => {
   return colorAsColor;
 };
 
-export interface IButtonProps {
-  buttonSize?: ElementSize;
-  buttonType?: ElementType;
-  rootColor?: string;
+export interface IElementBase {
   disabled?: boolean;
   loading?: boolean;
+  rootColor?: string;
+}
+
+export interface IButtonProps extends IElementBase {
+  buttonSize?: ElementSize;
+  buttonType?: ElementType;
+}
+
+export interface IToolbarProps extends IElementBase {
+  title: string;
+  width?: number;
+  height?: number;
 }
 
 export const getFontSize = (size: ElementSize): number => {

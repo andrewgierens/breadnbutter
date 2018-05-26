@@ -22,15 +22,13 @@ import {
   get2dOutline,
 } from "../common";
 
-const buttonStyle = (props: IButtonProps): CSSProperties => {
-  const {
-    buttonSize = ElementSize.Normal,
-    buttonType,
-    rootColor,
-    disabled,
-    loading,
-  } = props;
-
+const buttonStyle = ({
+  buttonSize = ElementSize.Normal,
+  buttonType,
+  rootColor,
+  disabled,
+  loading,
+}: IButtonProps): CSSProperties => {
   const mainColor = getColor(buttonType, rootColor);
 
   return {
@@ -53,8 +51,7 @@ const buttonStyle = (props: IButtonProps): CSSProperties => {
 };
 
 const Button:
-  GlamorousComponent<IButtonProps & React.HTMLProps<HTMLButtonElement>,
-    IButtonProps> = glamorous.button<IButtonProps>(
+  GlamorousComponent<IButtonProps & React.HTMLProps<HTMLButtonElement>, IButtonProps> = glamorous.button<IButtonProps>(
   preventSelection,
   buttonStyle,
 );
