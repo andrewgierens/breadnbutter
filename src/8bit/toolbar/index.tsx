@@ -6,6 +6,8 @@ import {
   getColor,
   getPadding,
   ElementSize,
+  ToolbarItemAlign,
+  IToolbarItemProps,
 } from "../../common";
 import glamorous, { CSSProperties } from "glamorous";
 import {
@@ -34,26 +36,62 @@ export const toolbarStyle = (
   return style as CSSProperties;
 };
 
+export class ToolbarItem extends React.PureComponent<IToolbarItemProps> {
+  public align: ToolbarItemAlign;
+  constructor(props: IToolbarItemProps) {
+    super(props);
+    this.align = props.align;
+  }
+
+  public render() {
+    const { children, onClick } = this.props;
+    const ToolbarItemContainer = glamorous.span();
+
+    return (
+      <ToolbarItemContainer onClick={onClick}>
+        {children}
+      </ToolbarItemContainer>
+    );
+  }
+}
+
 export default ({
   disabled,
-  height,
   rootColor,
   title,
-  width,
+  children,
 }: IToolbarProps) => {
   const ToolbarContainer = glamorous.div(
     toolbarStyle(rootColor),
     get2dOutline(),
   );
+
   const ToolbarTitle = glamorous.span({
     flex: 1,
     textAlign: "center",
     padding: `${getPadding(ElementSize.Normal)}rem`,
   });
 
+  const LeftContainer = glamorous.span();
+  const RightContainer = glamorous.span();
+
+  const toolbarItems = children ? children as ToolbarItem[] : null;
+
+  const titleEl = title ? (
+    <ToolbarTitle>
+      {title}
+    </ToolbarTitle>
+  ) : undefined;
+
   return (
     <ToolbarContainer disabled={disabled}>
-      <ToolbarTitle>{title}</ToolbarTitle>
+      <LeftContainer>
+        {toolbarItems && toolbarItems.filter((c) => c.align === ToolbarItemAlign.Left)}
+      </LeftContainer>
+      {titleEl}
+      <RightContainer>
+        {toolbarItems && toolbarItems.filter((c) => c.align === ToolbarItemAlign.Right )}
+      </RightContainer>
     </ToolbarContainer>
   );
 };

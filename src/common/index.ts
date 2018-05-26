@@ -61,18 +61,27 @@ export interface IElementBase {
   disabled?: boolean;
   loading?: boolean;
   rootColor?: string;
-  children?: any;
 }
 
 export interface IButtonProps extends IElementBase {
   buttonSize?: ElementSize;
   buttonType?: ElementType;
+  children?: any;
+}
+
+export enum ToolbarItemAlign {
+  Left,
+  Right,
+}
+
+export interface IToolbarItemProps extends IElementBase {
+  align: ToolbarItemAlign;
+  onClick: () => void;
 }
 
 export interface IToolbarProps extends IElementBase {
-  title: string;
-  width?: number;
-  height?: number;
+  title?: string;
+  children?: any;
 }
 
 export const getFontSize = (size: ElementSize): number => {
