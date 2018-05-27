@@ -76,6 +76,7 @@ export enum ToolbarItemAlign {
 
 export interface IToolbarItemProps extends IElementBase {
   align: ToolbarItemAlign;
+  children?: any;
   onClick: () => void;
 }
 
@@ -92,6 +93,19 @@ export const getFontSize = (size: ElementSize): number => {
       return 1;
     case ElementSize.Small:
       return 0.75;
+  }
+
+  throw new Error(`Invalid ElementSize ${size}`);
+};
+
+export const getToolFontSize = (size: ElementSize): number => {
+  switch (size) {
+    case ElementSize.Large:
+      return 1;
+    case ElementSize.Normal:
+      return 0.75;
+    case ElementSize.Small:
+      return 0.60;
   }
 
   throw new Error(`Invalid ElementSize ${size}`);

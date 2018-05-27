@@ -37,7 +37,7 @@ export const getClickable = (rootColor: Color): CSSProperties => {
   };
 };
 
-export const get2dOutline = (): CSSProperties => {
+export const get2dOutline = (rootColor: string = "white"): CSSProperties => {
   const beforeAfter = {
     content: " ",
     position: "absolute",
@@ -46,18 +46,21 @@ export const get2dOutline = (): CSSProperties => {
     boxSizing: "content-box",
   };
 
+  const mainColor = Color(rootColor);
+  const borderColor = mainColor.isLight ? "black" : "white";
+
   const before = {
     top: `-${outlineWidth}rem`,
     left: "0",
-    borderTop: `${outlineWidth}rem black solid`,
-    borderBottom: `${outlineWidth}rem black solid`,
+    borderTop: `${outlineWidth}rem ${borderColor} solid`,
+    borderBottom: `${outlineWidth}rem ${borderColor} solid`,
   };
 
   const after = {
     left: `-${outlineWidth}rem`,
     top: "0",
-    borderLeft: `${outlineWidth}rem black solid`,
-    borderRight: `${outlineWidth}rem black solid`,
+    borderLeft: `${outlineWidth}rem ${borderColor} solid`,
+    borderRight: `${outlineWidth}rem ${borderColor} solid`,
   };
 
   const style = {
