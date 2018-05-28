@@ -51,15 +51,15 @@ const buttonStyle = ({
   } as CSSProperties;
 };
 
-const Button = (props: IButtonProps) => {
+const Button = ({children, onClick, ...props}: IButtonProps) => {
   const StyledButton = glamorous.button<IButtonProps>(
     preventSelection,
     buttonStyle,
   );
 
   return (
-    <StyledButton {...props}>
-      {props.children}
+    <StyledButton onClick={() => onClick && onClick()} {...props}>
+      {children}
     </StyledButton>
   );
 };
