@@ -67,6 +67,7 @@ export interface IButtonProps extends IElementBase {
   buttonSize?: ElementSize;
   buttonType?: ElementType;
   children?: any;
+  onClick?: () => void;
 }
 
 export enum ToolbarItemAlign {
