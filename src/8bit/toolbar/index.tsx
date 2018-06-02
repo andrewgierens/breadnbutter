@@ -40,7 +40,7 @@ export const VerticalAligner = ({ children }: any) => {
 export const ToolbarItem = (props: IToolbarItemProps) => {
   const {
     children,
-    // onClick,
+    onClick,
     rootColor,
    } = props;
 
@@ -49,11 +49,18 @@ export const ToolbarItem = (props: IToolbarItemProps) => {
   }
 
   const rootColorAsColor = Color(rootColor);
-  const highlightColor = rootColorAsColor.isDark
-    ? Color("white").alpha(0.2)
-    : Color("black").alpha(0.2);
 
-  const hoverColor = highlightColor.alpha(0.6);
+  const highlightColor = rootColorAsColor.isDark()
+    ? Color("white").alpha(0.8)
+    : Color("black").alpha(0.8);
+
+  const hoverColor =  rootColorAsColor.isDark()
+    ? highlightColor.alpha(0.7)
+    : highlightColor.alpha(0.6);
+
+  const textColor = highlightColor.isDark()
+    ? "white"
+    : "black";
 
   const toolbarContainerStyle: CSSProperties = {
     display: "inline-block",
@@ -66,6 +73,7 @@ export const ToolbarItem = (props: IToolbarItemProps) => {
   const ClickableArea = glamorous.div({
     "flex": 1,
     "backgroundColor": highlightColor.hsl().string(),
+    "color": textColor,
     "padding": `${padding}rem`,
     "margin": `${padding}rem`,
     ":hover": {
@@ -77,7 +85,7 @@ export const ToolbarItem = (props: IToolbarItemProps) => {
   return (
     <ToolbarItemContainer>
       <VerticalAligner>
-        <ClickableArea>
+        <ClickableArea onClick={onClick}>
           {children}
         </ClickableArea>
       </VerticalAligner>

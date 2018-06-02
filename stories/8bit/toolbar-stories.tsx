@@ -11,23 +11,26 @@ storiesOf("8Bit/Toolbar", module)
   .add("cyan toolbar with text only", () => (
     <Toolbar title="Test Toolbar" rootColor="cyan"></Toolbar>
   ))
-  .add("Red toolbar with some tbar items", () => (
-    <Toolbar title="Tools" rootColor="orange">
-      <ToolbarItem
-        onClick={() => {
-          alert("testing the button");
-        }}
-        align={ToolbarItemAlign.Left}
-        rootColor="orange">
-        Click Me!
-      </ToolbarItem>
-      <ToolbarItem
-        onClick={() => {
-          alert("testing the button");
-        }}
-        align={ToolbarItemAlign.Right}
-        rootColor="orange">
-        Click Me. Plz!
-      </ToolbarItem>
-    </Toolbar>
-  ));
+  .add("Red toolbar with some tbar items", () => {
+    const rootColor = "purple";
+    return (
+      <Toolbar title="Tools" rootColor={rootColor}>
+        <ToolbarItem
+          onClick={() => {
+            alert("testing the button");
+          }}
+          align={ToolbarItemAlign.Left}
+          rootColor={rootColor}>
+          Click Meh!
+        </ToolbarItem>
+        <ToolbarItem
+          onClick={() => {
+            alert("testing the button");
+          }}
+          align={ToolbarItemAlign.Right}
+          rootColor={rootColor}>
+          Click Me. Plz!
+        </ToolbarItem>
+      </Toolbar>
+    );
+  });
