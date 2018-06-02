@@ -1,8 +1,9 @@
-// General Styles
 import * as React from "react";
+import * as color from "color";
+
 import {
   IToolbarProps,
-  // disabledElement,
+  disabledElement,
   getColor,
   getPadding,
   getToolFontSize,
@@ -41,27 +42,26 @@ export const VerticalAligner = ({ children }: any) => {
   );
 };
 
-const potato = () => {
-  alert("things");
-};
-
 export const ToolbarItem = (props: IToolbarItemProps) => {
-  const { children } = props;
+  const { children, onClick, rootColor } = props;
+
+  if (!rootColor) {
+    throw new Error(`rootColor cannot be null`);
+  }
+
+  const rootColorAsColor = color(rootColor);
+  const highlightColor = rootColorAsColor.isDark
+    ? "white"
+    : "black";
+
   const ToolbarItemContainer = glamorous.div({
-    "display": "inline-block",
-    "fontSize": `${getToolFontSize(ElementSize.Normal)}rem`,
-    "height": "100%",
-    "padding": getPadding(ElementSize.Normal),
-    ":hover": {
-      backgroundColor: "blue",
-    },
+    display: "inline-block",
+    fontSize: `${getToolFontSize(ElementSize.Normal)}rem`,
+    height: "100%",
   });
 
   return (
-    <ToolbarItemContainer onClick={() => {
-      debugger;
-      potato();
-    }}>
+    <ToolbarItemContainer onClick={onClick}>
       <VerticalAligner>
         {children}
       </VerticalAligner>
@@ -69,20 +69,20 @@ export const ToolbarItem = (props: IToolbarItemProps) => {
   );
 };
 
-// height/width in rem
+// Toolbar Comp
 export const toolbarStyle = (
   rootColor: string = "black",
 ): CSSProperties => {
   const mainColor = getColor(null, rootColor);
 
   const style: CSSProperties = {
-    display: "flex",
-    position: "relative",
-    flex: 1,
-    fontFamily: font,
-    background: getBackgroundColor(mainColor),
-    color: getForegroundColor(mainColor),
-    // ":disabled": disabledElement,
+    "display": "flex",
+    "position": "relative",
+    "flex": 1,
+    "fontFamily": font,
+    "background": getBackgroundColor(mainColor),
+    "color": getForegroundColor(mainColor),
+    ":disabled": disabledElement,
   };
 
   return style as CSSProperties;
