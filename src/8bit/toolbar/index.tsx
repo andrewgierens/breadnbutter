@@ -1,15 +1,15 @@
 import * as React from "react";
-import * as color from "color";
+import * as Color from "color";
 
 import {
   IToolbarProps,
   disabledElement,
   getColor,
-  getPadding,
   getToolFontSize,
   ElementSize,
   ToolbarItemAlign,
   IToolbarItemProps,
+  preventSelection,
 } from "../../common";
 import glamorous, { CSSProperties } from "glamorous";
 import {
@@ -20,50 +20,66 @@ import {
 } from "../common/index";
 
 export const VerticalAligner = ({ children }: any) => {
-  const Aligner = glamorous.div({
+  const alignerCss: CSSProperties = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     flexDirention: "column",
     height: "100%",
     width: "100%",
-  });
-
-  const Filler = glamorous.div({
-    flex: 1,
-  });
+  };
+  const Aligner = glamorous.div(alignerCss);
 
   return (
     <Aligner>
-      <Filler />
-        {children}
-      <Filler />
+      {children}
     </Aligner>
   );
 };
 
 export const ToolbarItem = (props: IToolbarItemProps) => {
-  const { children, onClick, rootColor } = props;
+  const {
+    children,
+    // onClick,
+    rootColor,
+   } = props;
 
   if (!rootColor) {
     throw new Error(`rootColor cannot be null`);
   }
 
-  const rootColorAsColor = color(rootColor);
+  const rootColorAsColor = Color(rootColor);
   const highlightColor = rootColorAsColor.isDark
-    ? "white"
-    : "black";
+    ? Color("white").alpha(0.2)
+    : Color("black").alpha(0.2);
 
-  const ToolbarItemContainer = glamorous.div({
+  const hoverColor = highlightColor.alpha(0.6);
+
+  const toolbarContainerStyle: CSSProperties = {
     display: "inline-block",
     fontSize: `${getToolFontSize(ElementSize.Normal)}rem`,
     height: "100%",
-  });
+  };
+  const ToolbarItemContainer = glamorous.div(toolbarContainerStyle);
+
+  const padding = 0.5;
+  const ClickableArea = glamorous.div({
+    "flex": 1,
+    "backgroundColor": highlightColor.hsl().string(),
+    "padding": `${padding}rem`,
+    "margin": `${padding}rem`,
+    ":hover": {
+      backgroundColor: hoverColor.lighten(0.5).hsl().string(),
+    },
+    "cursor": "pointer",
+  }, preventSelection);
 
   return (
-    <ToolbarItemContainer onClick={onClick}>
+    <ToolbarItemContainer>
       <VerticalAligner>
-        {children}
+        <ClickableArea>
+          {children}
+        </ClickableArea>
       </VerticalAligner>
     </ToolbarItemContainer>
   );
@@ -97,14 +113,8 @@ export default ({
   const ToolbarContainer = glamorous.div(
     toolbarStyle(rootColor),
     get2dOutline(rootColor),
+    preventSelection,
   );
-
-  const ToolbarTitle = glamorous.span({
-    textAlign: "center",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: `${getPadding(ElementSize.Normal)}rem`,
-  });
 
   const LeftContainer = glamorous.div({
     flex: 1,
@@ -131,9 +141,11 @@ export default ({
   }
 
   const titleEl = title ? (
-    <ToolbarTitle>
-      {title}
-    </ToolbarTitle>
+    <div>
+      <VerticalAligner>
+        {title}
+      </VerticalAligner>
+    </div>
   ) : undefined;
 
   return (

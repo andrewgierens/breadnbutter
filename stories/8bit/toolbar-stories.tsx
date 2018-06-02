@@ -17,14 +17,16 @@ storiesOf("8Bit/Toolbar", module)
         onClick={() => {
           alert("testing the button");
         }}
-        align={ToolbarItemAlign.Left}>
+        align={ToolbarItemAlign.Left}
+        rootColor="orange">
         Click Me!
       </ToolbarItem>
       <ToolbarItem
         onClick={() => {
           alert("testing the button");
         }}
-        align={ToolbarItemAlign.Right}>
+        align={ToolbarItemAlign.Right}
+        rootColor="orange">
         Click Me. Plz!
       </ToolbarItem>
     </Toolbar>
