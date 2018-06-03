@@ -37,6 +37,7 @@ const buttonStyle = ({
     "position": "relative",
     "textAlign": "center",
     "textDecoration": "none",
+    "border": "none",
     "fontFamily": font,
     "fontSize": `${getFontSize(buttonSize)}rem`,
     "background": getBackgroundColor(mainColor),
