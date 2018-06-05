@@ -23,7 +23,7 @@ export const getClickable = (rootColor: Color): CSSProperties => {
     outline: 0,
   };
 
-  const style: CSSProperties = {
+  return {
     "cursor": "pointer",
     "boxShadow": `inset -${shadowWidth}rem -${shadowWidth}rem 0px 0px ${shadowColor}`,
     ":hover": {
@@ -34,12 +34,10 @@ export const getClickable = (rootColor: Color): CSSProperties => {
     ":active": {
       boxShadow: `inset ${shadowWidth}rem ${shadowWidth}rem 0px 0px ${shadowColor}`,
     },
-  };
-
-  return style;
+  } as CSSProperties;
 };
 
-export const get2dOutline = (): CSSProperties => {
+export const get2dOutline = (rootColor: string = "white"): CSSProperties => {
   const beforeAfter = {
     content: " ",
     position: "absolute",
@@ -48,22 +46,26 @@ export const get2dOutline = (): CSSProperties => {
     boxSizing: "content-box",
   };
 
+  const mainColor = Color(rootColor);
+  const borderColor = mainColor.isLight ? "black" : "white";
+
   const before = {
     top: `-${outlineWidth}rem`,
     left: "0",
-    borderTop: `${outlineWidth}rem black solid`,
-    borderBottom: `${outlineWidth}rem black solid`,
+    borderTop: `${outlineWidth}rem ${borderColor} solid`,
+    borderBottom: `${outlineWidth}rem ${borderColor} solid`,
+    pointerEvents: "none",
   };
 
   const after = {
     left: `-${outlineWidth}rem`,
     top: "0",
-    borderLeft: `${outlineWidth}rem black solid`,
-    borderRight: `${outlineWidth}rem black solid`,
+    borderLeft: `${outlineWidth}rem ${borderColor} solid`,
+    borderRight: `${outlineWidth}rem ${borderColor} solid`,
+    pointerEvents: "none",
   };
 
-  // Not sure why I have to do this :(
-  const style: any = {
+  const style = {
     ":after": {
       ...beforeAfter,
       ...after,
@@ -74,5 +76,5 @@ export const get2dOutline = (): CSSProperties => {
     },
   };
 
-  return style;
+  return style as CSSProperties;
 };

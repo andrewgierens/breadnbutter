@@ -14,7 +14,10 @@ export enum ElementSize {
   Large = "large",
 }
 
-export const getColor = (type?: ElementType | null, rootColor?: string | null): Color => {
+export const getColor = (
+  type?: ElementType | null,
+  rootColor?: string | null,
+): Color => {
   let colorAsString = null;
 
   if (type) {
@@ -58,28 +61,34 @@ export interface IElementBase {
   disabled?: boolean;
   loading?: boolean;
   rootColor?: string;
-  children: any;
+  align?: ItemAlign;
 }
 
 export interface IButtonProps extends IElementBase {
   buttonSize?: ElementSize;
   buttonType?: ElementType;
+  children?: any;
+  onClick?: () => void;
+}
+
+export enum ItemAlign {
+  Left = 1,
+  Right = 2,
 }
 
 export interface IToolbarProps extends IElementBase {
-  title: string;
-  width?: number;
-  height?: number;
+  title?: string;
+  children?: any;
 }
 
 export const getFontSize = (size: ElementSize): number => {
   switch (size) {
     case ElementSize.Large:
-      return 1;
+      return 1.5;
     case ElementSize.Normal:
-      return 0.95;
+      return 1;
     case ElementSize.Small:
-      return 0.7;
+      return 0.75;
   }
 
   throw new Error(`Invalid ElementSize ${size}`);
@@ -88,7 +97,7 @@ export const getFontSize = (size: ElementSize): number => {
 export const getPadding = (size: ElementSize): number => {
   switch (size) {
     case ElementSize.Large:
-      return 1.5;
+      return 1.75;
     case ElementSize.Normal:
       return 1.25;
     case ElementSize.Small:
