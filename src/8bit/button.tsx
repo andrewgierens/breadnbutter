@@ -1,7 +1,7 @@
 import * as React from "react";
 import glamorous, { CSSProperties } from "glamorous";
 
-import "../fonts/press-start-2p.css";
+import "./fonts/press-start-2p.css";
 
 // General Styles
 import {
@@ -12,7 +12,7 @@ import {
   getPadding,
   ElementSize,
   disabledElement,
-} from "../../common";
+} from "../common";
 
 // 8 Bit Styles
 import {
@@ -21,7 +21,7 @@ import {
   getForegroundColor,
   getClickable,
   get2dOutline,
-} from "../common";
+} from "./common";
 
 const buttonStyle = ({
   buttonSize = ElementSize.Normal,
@@ -39,6 +39,7 @@ const buttonStyle = ({
     "textDecoration": "none",
     "border": "none",
     "fontFamily": font,
+    "margin": "0.5rem",
     "fontSize": `${getFontSize(buttonSize)}rem`,
     "background": getBackgroundColor(mainColor),
     "color": getForegroundColor(mainColor),

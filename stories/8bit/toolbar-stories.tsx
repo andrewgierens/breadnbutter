@@ -1,9 +1,8 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 
-import Button from "../../src/8bit/button";
-import Toolbar, { ToolbarItem } from "../../src/8bit/toolbar";
-import { ToolbarItemAlign, ElementSize } from "../../src/common";
+import { Button, Toolbar } from "../../src/8bit";
+import { ElementSize, ItemAlign } from "../../src/common";
 
 storiesOf("8Bit/Toolbar", module)
   .add("green toolbar with text only", () => (
@@ -11,36 +10,33 @@ storiesOf("8Bit/Toolbar", module)
   ))
   .add("cyan toolbar with text only", () => (
     <Toolbar title="Test Toolbar" rootColor="cyan">
-      <ToolbarItem
-        onClick={() => {
-          alert("testing the button");
-        }}
-        align={ToolbarItemAlign.Left}
-        rootColor="cyan">
-        <Button buttonSize={ElementSize.Small} rootColor="red">Things</Button>
-      </ToolbarItem>
     </Toolbar>
   ))
   .add("Red toolbar with some tbar items", () => {
-    const rootColor = "purple";
+    const rootColor = "yellow";
     return (
       <Toolbar title="Tools" rootColor={rootColor}>
-        <ToolbarItem
-          onClick={() => {
-            alert("testing the button");
-          }}
-          align={ToolbarItemAlign.Left}
-          rootColor={rootColor}>
+        <Button
+          buttonSize={ElementSize.Small}
+          rootColor="cyan"
+          align={ItemAlign.Left}
+          >
           Click Meh!
-        </ToolbarItem>
-        <ToolbarItem
-          onClick={() => {
-            alert("testing the button");
-          }}
-          align={ToolbarItemAlign.Right}
-          rootColor={rootColor}>
+        </Button>
+        <Button
+          buttonSize={ElementSize.Small}
+          rootColor="cyan"
+          align={ItemAlign.Left}
+          >
+          Don't click meh!
+        </Button>
+        <Button
+          buttonSize={ElementSize.Small}
+          rootColor="red"
+          align={ItemAlign.Right}
+          >
           Click Me. Plz!
-        </ToolbarItem>
+        </Button>
       </Toolbar>
     );
   });

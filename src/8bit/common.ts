@@ -54,7 +54,7 @@ export const get2dOutline = (rootColor: string = "white"): CSSProperties => {
     left: "0",
     borderTop: `${outlineWidth}rem ${borderColor} solid`,
     borderBottom: `${outlineWidth}rem ${borderColor} solid`,
-    zIndex: "-1",
+    pointerEvents: "none",
   };
 
   const after = {
@@ -62,7 +62,7 @@ export const get2dOutline = (rootColor: string = "white"): CSSProperties => {
     top: "0",
     borderLeft: `${outlineWidth}rem ${borderColor} solid`,
     borderRight: `${outlineWidth}rem ${borderColor} solid`,
-    zIndex: "-1",
+    pointerEvents: "none",
   };
 
   const style = {
