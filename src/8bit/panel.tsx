@@ -1,7 +1,8 @@
 import * as React from "react";
+import styled from 'react-emotion';
 
 import {
-  IToolbarProps,
+  IPanelProps,
   disabledElement,
   getColor,
   preventSelection,
@@ -26,7 +27,6 @@ export const panelStyle = (
     "fontFamily": font,
     "height": "100%",
     "width": "100%",
-    "padding": "0.25rem",
     "boxShadow": "5px 5px 0px 0px rgba(71,71,71,1)",
     "background": getBackgroundColor(mainColor),
     "color": getForegroundColor(mainColor),
@@ -36,10 +36,16 @@ export const panelStyle = (
   return style as CSSProperties;
 };
 
+const ToolbarPanelContainer = styled('div')`
+  height: 100%;
+  width: 100%,;
+`;
+
 export default ({
   disabled,
   rootColor,
-}: IToolbarProps) => {
+  toolbar,
+}: IPanelProps) => {
   const PanelContainer = glamorous.div(
     panelStyle(rootColor),
     get2dOutline(rootColor),
@@ -47,7 +53,10 @@ export default ({
   );
 
   return (
-    <PanelContainer disabled={disabled}>
-    </PanelContainer>
+    <ToolbarPanelContainer>
+      {toolbar}
+      <PanelContainer disabled={disabled}>
+      </PanelContainer>
+    </ToolbarPanelContainer>
   );
 };
