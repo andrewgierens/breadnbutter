@@ -1,6 +1,6 @@
 {
   "name": "@agierens/breadnbutter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A component library that's as fluffy as sourdough, and as smooth as butter 🍞",
   "main": "index.ts",
   "author": "Andrew Gierens, Aswin Lakshman",
