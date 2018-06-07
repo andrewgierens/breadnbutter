@@ -45,6 +45,9 @@ export default ({
   disabled,
   rootColor,
   toolbar,
+  className,
+  bottomBar,
+  children,
 }: IPanelProps) => {
   const PanelContainer = glamorous.div(
     panelStyle(rootColor),
@@ -55,8 +58,10 @@ export default ({
   return (
     <ToolbarPanelContainer>
       {toolbar}
-      <PanelContainer disabled={disabled}>
+      <PanelContainer disabled={disabled} className={className}>
+      {children}
       </PanelContainer>
+      {bottomBar}
     </ToolbarPanelContainer>
   );
 };

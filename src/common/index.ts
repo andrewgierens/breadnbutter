@@ -78,6 +78,9 @@ export enum ItemAlign {
 
 export interface IPanelProps extends IElementBase {
   toolbar?: any;
+  bottomBar?: any;
+  children?: any;
+  className?: any;
 }
 
 export interface IToolbarProps extends IElementBase {
