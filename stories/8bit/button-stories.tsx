@@ -1,7 +1,7 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 
-import { Button } from "../../src/8bit";
+import { Button } from "../../src";
 import { ElementSize, ElementType } from "../../src/common";
 
 storiesOf("8Bit/Button", module)

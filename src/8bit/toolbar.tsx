@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, { css } from 'react-emotion';
+import styled, { css } from "react-emotion";
 
 import {
   IToolbarProps,
@@ -45,18 +45,18 @@ export default ({
   title,
   children,
 }: IToolbarProps) => {
-  const ToolbarContainer = styled('div')`
+  const ToolbarContainer = styled("div")`
     ${toolbarStyle(rootColor)};
     ${get2dOutline(rootColor)};
     ${preventSelection};
   `;
 
-  const LeftContainer = styled('div')`
+  const LeftContainer = styled("div")`
     flex: 1;
     text-align: left;
   `;
 
-  const RightContainer = styled('div')`
+  const RightContainer = styled("div")`
     flex: 1;
     text-align: right;
   `;

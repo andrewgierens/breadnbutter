@@ -53,7 +53,7 @@ const buttonStyle = ({
 };
 
 const Button = ({children, onClick, ...props}: IButtonProps) => {
-  const StyledButton = styled('button')`
+  const StyledButton = styled("button")`
     ${preventSelection};
     ${buttonStyle(props)};
   `;

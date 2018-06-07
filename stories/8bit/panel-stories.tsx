@@ -1,11 +1,11 @@
 import * as React from "react";
-import styled, { css } from 'react-emotion';
+import styled, { css } from "react-emotion";
 import { storiesOf } from "@storybook/react";
 
-import { Panel, Toolbar, Button } from "../../src/8bit";
+import { Panel, Toolbar, Button } from "../../src";
 import { ElementSize, ItemAlign } from "../../src/common";
 
-const StyledDiv = styled('div')`
+const StyledDiv = styled("div")`
   height: 50rem;
   width: 50%;
 `;

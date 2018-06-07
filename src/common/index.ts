@@ -1,5 +1,5 @@
 import * as Color from "color";
-import { css } from 'emotion';
+import { css } from "emotion";
 
 export enum ElementType {
   Primary = 1,
