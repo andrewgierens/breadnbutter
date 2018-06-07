@@ -23,6 +23,9 @@
   },
   "scripts": {
     "test": "yarn test",
-    "start": "start-storybook -p 9001 -c .storybook"
+    "start": "start-storybook -p 9001 -c .storybook",
+    "prepublish": "yarn dist",
+    "build": "yarn prepublish",
+    "dist": "rm -rf dist && tsc"
   }
 }
