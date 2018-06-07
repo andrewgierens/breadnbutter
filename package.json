@@ -26,6 +26,6 @@
     "start": "start-storybook -p 9001 -c .storybook",
     "prepublish": "yarn dist",
     "build": "yarn prepublish",
-    "dist": "rm -rf dist && tsc"
+    "dist": "rm -rf dist && tsc && cp -r ./src/8bit/fonts/ ./dist/8bit"
   }
 }
