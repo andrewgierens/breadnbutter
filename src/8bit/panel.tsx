@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled, { css } from 'react-emotion';
+import styled, { css } from "react-emotion";
 
 import {
   IPanelProps,
@@ -37,7 +37,7 @@ export const panelStyle = (
   return style;
 };
 
-const ToolbarPanelContainer = styled('div')`
+const ToolbarPanelContainer = styled("div")`
   height: 100%;
   width: 100%;
 `;
@@ -50,13 +50,13 @@ export default ({
   bottomBar,
   children,
 }: IPanelProps) => {
-  const PanelContainer = styled('div')`
+  const PanelContainer = styled("div")`
     ${panelStyle(rootColor)};
     ${get2dOutline(rootColor)};
     ${preventSelection};
   `;
 
-  // TODO: Commented out disabled={disabled} 
+  // TODO: Commented out disabled={disabled}
   return (
     <ToolbarPanelContainer>
       {toolbar}

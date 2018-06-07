@@ -24,7 +24,7 @@
   "scripts": {
     "prepublish": "yarn dist",
     "build": "yarn prepublish",
-    "dist": "rm -rf dist && tsc && cp -r ./src/8bit/fonts/ ./dist/8bit"
+    "dist": "rm -rf dist && tsc && cp -r ./src/8bit/fonts/ ./dist/8bit",
     "start": "start-storybook -p 9001 -c .storybook",
     "test": "echo 'No tests yet'"
   }
