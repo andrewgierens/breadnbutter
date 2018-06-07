@@ -25,13 +25,13 @@ export const toolbarStyle = (
     display: flex;
     position: relative;
     flex: 1;
-    fontFamily: ${font};
-    minHeight: 3rem;
+    font-family: ${font};
+    min-height: 3rem;
     padding: 0.25rem;
-    boxShadow: 5px 5px 0px 0px rgba(71,71,71,1);
+    box-shadow: 5px 5px 0px 0px rgba(71,71,71,1);
     background: ${getBackgroundColor(mainColor)};
     color: ${getForegroundColor(mainColor)};
-    &:disabled: {
+    &:disabled {
       ${disabledElement};
     };
   `;

@@ -26,10 +26,10 @@ export const panelStyle = (
     fontFamily: ${font};
     height: 100%;
     width: 100%;
-    boxShadow: 5px 5px 0px 0px rgba(71,71,71,1);
+    box-shadow: 5px 5px 0px 0px rgba(71,71,71,1);
     background: ${getBackgroundColor(mainColor)};
     color: ${getForegroundColor(mainColor)};
-    &:disabled: {
+    &:disabled {
       ${disabledElement};
     };
   `;

@@ -14,7 +14,7 @@ const VerticalAligner = ({ align, children }: any) => {
 
   const alignerCss: string = css`
     display: flex;
-    align-items: ${alignItems},
+    align-items: ${alignItems};
     justify-content: center;
     flex-direction: column;
     height: 100%;

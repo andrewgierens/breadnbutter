@@ -34,19 +34,19 @@ const buttonStyle = ({
   return css`
     display: inline-block;
     position: relative;
-    textAlign: center;
-    textDecoration: none;
+    text-align: center;
+    text-decoration: none;
     border: none;
-    fontFamily: ${font};
+    font-family: ${font};
     margin: 0.5rem;
-    fontSize: ${getFontSize(buttonSize) }rem;
+    font-size: ${getFontSize(buttonSize) }rem;
     background: ${getBackgroundColor(mainColor)};
     color: ${getForegroundColor(mainColor)};
     padding: ${getPadding(buttonSize)}rem;
     ${(disabled ? {} : getClickable(mainColor))};
     ${get2dOutline()};
     ${(loading ? { disabledElement } : {})};
-    &:disabled: {
+    &:disabled {
       ${disabledElement};
     }
   `;

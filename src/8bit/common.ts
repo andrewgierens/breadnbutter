@@ -26,14 +26,14 @@ export const getClickable = (rootColor: Color): string => {
   return css`
     cursor: pointer;
     box-shadow: inset -${shadowWidth}rem -${shadowWidth}rem 0px 0px ${shadowColor};
-    &:hover: {
+    &:hover {
       ${hoverAndFocus};
       background: ${rootColor.darken(0.075).hex().toString()};
     };
-    &:focus: {
+    &:focus {
       ${hoverAndFocus};
     };
-    &:active: {
+    &:active {
       box-shadow: inset ${shadowWidth}rem ${shadowWidth}rem 0px 0px ${shadowColor};
     };
   `;
@@ -41,7 +41,7 @@ export const getClickable = (rootColor: Color): string => {
 
 export const get2dOutline = (rootColor: string = "white"): string => {
   const beforeAfter = css`
-    content: " ";
+    content: ' ';
     position: absolute;
     width: 100%;
     height: 100%;
@@ -68,11 +68,11 @@ export const get2dOutline = (rootColor: string = "white"): string => {
   `;
 
   const style = css`
-    &:after: {
+    &:after {
       ${beforeAfter};
       ${after};
     };
-    &:before: {
+    &:before {
       ${beforeAfter};
       ${before};
     };
