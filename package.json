@@ -23,5 +23,6 @@
   },
   "scripts": {
     "start": "start-storybook -p 9001 -c .storybook"
+    "test": "echo 'No tests yet'"
   }
 }
