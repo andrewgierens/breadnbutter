@@ -23,7 +23,7 @@ export const panelStyle = (
     display: flex;
     position: relative;
     flex: 1;
-    fontFamily: ${font};
+    font-family: ${font};
     height: 100%;
     width: 100%;
     box-shadow: 5px 5px 0px 0px rgba(71,71,71,1);
