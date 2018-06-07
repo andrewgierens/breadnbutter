@@ -1,6 +1,6 @@
 deploy:
   provider: npm
-  email: ben@npmjs.com
+  email: apgierens@gmail.com
   api_key: $NPM_TOKEN
   on:
     tags: true
