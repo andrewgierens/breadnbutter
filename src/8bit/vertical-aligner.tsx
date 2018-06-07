@@ -1,26 +1,29 @@
 import * as React from "react";
-import glamorous, { CSSProperties } from "glamorous";
 import { ItemAlign } from "../common/index";
+import styled, { css } from 'react-emotion';
 
 const VerticalAligner = ({ align, children }: any) => {
-  const alignerCss: CSSProperties = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "column",
-    height: "100%",
-    width: "100%",
-  };
-
+  let alignItems = 'center';
   if (align && align === ItemAlign.Left) {
-    alignerCss.alignItems = "flex-start";
+    alignItems = "flex-start";
   }
 
   if (align && align === ItemAlign.Right) {
-    alignerCss.alignItems = "flex-end";
+    alignItems = "flex-end";
   }
 
-  const Aligner = glamorous.div(alignerCss);
+  const alignerCss: string = css`
+    display: flex;
+    align-items: ${alignItems};
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  `;
+
+  const Aligner = styled('div')`
+    ${alignerCss};
+  `;
 
   return (
     <Aligner>

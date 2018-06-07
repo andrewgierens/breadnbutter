@@ -1,5 +1,5 @@
 import * as React from "react";
-import glamorous, { CSSProperties } from "glamorous";
+import styled, { css } from "react-emotion";
 
 import "./fonts/press-start-2p.css";
 
@@ -29,35 +29,34 @@ const buttonStyle = ({
   rootColor,
   disabled,
   loading,
-}: IButtonProps): CSSProperties => {
+}: IButtonProps): string => {
   const mainColor = getColor(buttonType, rootColor);
-
-  return {
-    "display": "inline-block",
-    "position": "relative",
-    "textAlign": "center",
-    "textDecoration": "none",
-    "border": "none",
-    "fontFamily": font,
-    "margin": "0.5rem",
-    "fontSize": `${getFontSize(buttonSize)}rem`,
-    "background": getBackgroundColor(mainColor),
-    "color": getForegroundColor(mainColor),
-    "padding": `${getPadding(buttonSize)}rem`,
-    ...(disabled ? {} : getClickable(mainColor)),
-    ...get2dOutline(),
-    ...(loading ? {
-      ...disabledElement,
-    } : {}),
-    ":disabled": disabledElement,
-  } as CSSProperties;
+  return css`
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    font-family: ${font};
+    margin: 0.5rem;
+    font-size: ${getFontSize(buttonSize) }rem;
+    background: ${getBackgroundColor(mainColor)};
+    color: ${getForegroundColor(mainColor)};
+    padding: ${getPadding(buttonSize)}rem;
+    ${(disabled ? {} : getClickable(mainColor))};
+    ${get2dOutline()};
+    ${(loading ? { disabledElement } : {})};
+    &:disabled {
+      ${disabledElement};
+    }
+  `;
 };
 
 const Button = ({children, onClick, ...props}: IButtonProps) => {
-  const StyledButton = glamorous.button<IButtonProps>(
-    preventSelection,
-    buttonStyle,
-  );
+  const StyledButton = styled('button')`
+    ${preventSelection};
+    ${buttonStyle(props)};
+  `;
 
   return (
     <StyledButton onClick={() => onClick && onClick()} {...props}>

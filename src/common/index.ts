@@ -1,4 +1,5 @@
 import * as Color from "color";
+import { css } from 'emotion';
 
 export enum ElementType {
   Primary = 1,
@@ -114,13 +115,13 @@ export const getPadding = (size: ElementSize): number => {
   throw new Error(`Invalid ElementSize ${size}`);
 };
 
-export const preventSelection = {
-  "-khtml-user-select": "none",
-  "-moz-user-select": "none",
-  "-ms-user-select": "none",
-  "-webkit-touch-callout": "none",
-  "-webkit-user-select": "none",
-};
+export const preventSelection = css`
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+`;
 
 export const disabledElement = {
   opacity: 0.65,
