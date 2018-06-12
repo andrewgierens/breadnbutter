@@ -2,6 +2,9 @@ if: branch = release
 language: node_js
 node_js:
   - "8"
+install:
+  - npm install -g typescript
+  - npm install
 deploy:
   provider: npm
   email: apgierens@gmail.com
