@@ -2,7 +2,7 @@ if: branch = release
 language: node_js
 node_js:
   - "8"
-pre-install:
+before_install:
   - yarn global add typescript
 deploy:
   provider: npm
