@@ -2,9 +2,8 @@ if: branch = release
 language: node_js
 node_js:
   - "8"
-install:
-  - npm install
-  - npm install -g typescript
+pre-install:
+  - yarn global add typescript
 deploy:
   provider: npm
   email: apgierens@gmail.com
