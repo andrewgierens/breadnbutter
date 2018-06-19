@@ -45,7 +45,7 @@ const buttonStyle = ({
     ${get2dOutline()};
     ${(loading ? { disabledElement } : {})};
     &:disabled {
-      ${disabledElement};
+      ${disabledElement}
     }
   `;
 };
