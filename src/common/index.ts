@@ -67,7 +67,7 @@ export interface IElementBase {
 
 export interface IIconProps {
   icon: string;
-  size: ElementSize;
+  size?: ElementSize;
 }
 
 export interface IButtonProps extends IElementBase {

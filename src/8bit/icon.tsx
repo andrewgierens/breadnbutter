@@ -1,17 +1,22 @@
 import * as React from "react";
-import { IIconProps } from "../common/index";
+import { IIconProps, getFontSize } from "../common/index";
 import styled from "react-emotion";
 
-const Icon = ({ icon }: IIconProps) => {
-  // const fontSize = getFontSize(size) * 1.5;
-//
-    /* font-size: ${fontSize}rem; */
-    /* margin-right: 1rem; */
+const Icon = ({ icon, size }: IIconProps) => {
 
-  const I = styled("span")`
+  let I = styled("span")`
     vertical-align: middle;
     display: inline-block;
   `;
+
+  if (size) {
+    const fontSize = getFontSize(size) * 1.5;
+
+    I = styled(I)`
+      font-size: ${fontSize}rem;
+      margin-right: 1rem;
+    `;
+  }
 
   return (
     <I className={`fas fa-${icon}`} ></I>
