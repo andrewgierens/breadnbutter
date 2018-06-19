@@ -65,6 +65,11 @@ export interface IElementBase {
   align?: ItemAlign;
 }
 
+export interface IIconProps {
+  icon: string;
+  size: ElementSize;
+}
+
 export interface IButtonProps extends IElementBase {
   buttonSize?: ElementSize;
   buttonType?: ElementType;
@@ -87,6 +92,10 @@ export interface IPanelProps extends IElementBase {
 export interface IToolbarProps extends IElementBase {
   title?: string;
   children?: any;
+}
+
+export interface IDropdownButtonProps extends IButtonProps {
+  dropIcon?: string;
 }
 
 export const getFontSize = (size: ElementSize): number => {

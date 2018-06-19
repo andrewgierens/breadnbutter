@@ -1,8 +1,6 @@
 import * as React from "react";
 import styled, { css } from "react-emotion";
 
-import "./fonts/press-start-2p.css";
-
 // General Styles
 import {
   preventSelection,

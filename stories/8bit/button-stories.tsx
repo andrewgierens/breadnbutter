@@ -1,15 +1,18 @@
 import * as React from "react";
 import { storiesOf } from "@storybook/react";
 
-import { Button } from "../../src";
+import { Button, Icon } from "../../src";
 import { ElementSize, ElementType } from "../../src/common";
 
 storiesOf("8Bit/Button", module)
   .add("normal with text (primary)", () => (
-    <Button buttonType={ElementType.Primary}>Normal Primary</Button>
+    <Button buttonType={ElementType.Primary}>
+      <Icon icon="briefcase-medical" size={ElementSize.Normal}/>
+      <span style={{verticalAlign: "middle"}} >Normal Primary</span>
+    </Button>
   ))
   .add("small with text (link)", () => (
-    <Button buttonSize={ElementSize.Small} buttonType={ElementType.Link} >Small Link</Button>
+    <Button rootColor={"black"} buttonSize={ElementSize.Small} buttonType={ElementType.Link} >Small Link</Button>
   ))
   .add("large with text (info)", () => (
     <Button buttonSize={ElementSize.Large} buttonType={ElementType.Info}>Large Info</Button>
