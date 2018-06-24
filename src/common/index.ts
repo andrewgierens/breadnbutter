@@ -89,6 +89,15 @@ export interface IToolbarProps extends IElementBase {
   children?: any;
 }
 
+export interface ITabPanelProps extends IElementBase {
+  children?: any;
+}
+
+export interface ITabProps extends IElementBase {
+  title?: string;
+  children?: any;
+}
+
 export const getFontSize = (size: ElementSize): number => {
   switch (size) {
     case ElementSize.Large:
